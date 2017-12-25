@@ -25,4 +25,21 @@
 D.~M~Abrams and S.~H~Strogatz, ``Linguistics - modelling the dynamics of
   language death,'' vol. 424, p. 900, 09 2003.
 
+\bibitem{bilingual}
+\BIBentryALTinterwordspacing
+R.~Colucci, J.~Mira, J.~J. Nieto, and M.~V. Otero-Espinar, ``Non trivial
+  coexistence conditions for a model of language competition obtained by
+  bifurcation theory,'' \emph{Acta Applicandae Mathematicae}, vol. 146, no.~1,
+  pp. 187--203, Dec 2016. [Online]. Available:
+  \url{https://doi.org/10.1007/s10440-016-0064-3}
+\BIBentrySTDinterwordspacing
+
+\bibitem{BAGGS19939}
+\BIBentryALTinterwordspacing
+I.~Baggs and H.~Freedman, ``Can the speakers of a dominated language survive as
+  unilinguals?: A mathematical model of bilingualism,'' \emph{Mathematical and
+  Computer Modelling}, vol.~18, no.~6, pp. 9 -- 18, 1993. [Online]. Available:
+  \url{http://www.sciencedirect.com/science/article/pii/089571779390122F}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

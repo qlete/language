@@ -11,14 +11,85 @@
 
 \maketitle
 
-\section*{Introduction}
+\section{Introduction}
 Languages death is a major cultural issue on our planet.
-On the aprroximately 7,000 languages in the world, more than half of them are endengared.
+On the aprroximately 7,000 languages in the world, more than half of them are endangered.
 It is estimated that one language is dying every two weeks.
 90 \% of the languages are expected to disappear with the current generation \cite{death}.
 In this context, it is important to come up with models to explain this death so that policies can be adapted.
 Many models focused on the properties of the languages like grammar or syntax were developed.
-Here we restrict ourselves to the mathematical models in the framework of dynamical systems. 
+Here we restrict ourselves to the mathematical models in the framework of dynamical systems. \\
+Abrams and Strogatz explained in \cite{death} how the death of a language competing with another can be explained with a very simple model.
+Other authors (\cite{bilingual}) have extended this model to account for the possibility of bilinguism among the population. In particular, they show when coexistence is possible.
+In this work, I propose to extend the two previous models to model the temporal change on the perception of a language when it is endangered.
+I will also analyse numerically some spatial properties of the dynamics and test on a real dataset for the Irish case.
+As the model developed here is a direct extension of \cite{bilingual} and as a comprehensive state space analysis was made in that paper,
+I will in each section recall and explain the important results found in \cite{bilingual} before extending to the new temporal and spatial considerations. \\
+The report will be organised as follows : in section \ref{sec:basic},
+I will prensent the equations of the models proposed by \cite{death} and \cite{bilingual} and define the notations used.
+Section \ref{sec:1d} will describe the extension of the model proposed for the change in the perceived status of a language and apply it to extend the Abrams-Strogatz model.
+Section \ref{sec:2d} will do the same for \cite{bilingual}.
+Section \ref{sec:spatial} will analyse some spatial properties of the system.
+Section \ref{sec:conclusion} will be the conclusion of this project.
+
+\section{Basic models and notation}
+\label{sec:basic}
+We consider a system of two competing languages X and Y.
+Abrams and Strogatz made the assumption that the attractiveness of a language depends on two things : its number of speakers and its perceived status.
+The perceived relative status, denoted by $s \in [0;1]$ is the perceived social or economical advantage that one has when one speaks this language.
+We denote by $x$ and $y$ the normailized population of speakers of language X and Y, i.e. $x+y=1$. $P_{YX}(x, s)$ is the probability per unit of time that a Y speaker becomes an X speaker. As stated above, it is a function of both $x$ and $s$.
+A simple model for the evolution of this system is
+$$\dx = yP_{YX}(x, s) - xP_{XY}(x, s)$$
+which, as $y = 1-x$, is a 1D system. \\
+By interchangability of the two languages, one should have that $P_{XY}(x, s) = P_{YX}(1-x, 1-s)$. Abrams and Strogatz proposed the following function for the probability of switching of language :
+\[ P_{YX}(x,s) = cx^as \hspace{1cm} P_{XY}(x,s) = c(1-x)^a(1-s) \]
+
+Abrams and Strogatz empirically determined that the parameter $a$ is quite constant trough many populations, with a mean of $1.31$ on a standard deviation of $0.25$. The parameter $s$ has to be estimated for each separate case. \\
+
+This model doesn't account for the possibility of existence of a bilingual population.
+In some cases, this population plays an important role for the persistence of a language.
+A model taking a bilingual population into account was first proposed in \cite{BAGGS19939}.
+The idea is to introduce a bilingual population $b$ such that $x+y+b=1$.
+They also introduce a parameter $k \in [0;1]$ describing the similarity between the two languages.
+If $k = 1$, $Y = X$ whereas if $k = 0$, the languages are totally different.
+By simply extending the previous model, we obtain the following equations
+
+\begin{equation}
+\label{eq:bil}
+\begin{cases}
+\dx = yP_{YX} + bP_{BX} - x(P_{XY} + P_{XB}) \\
+\dy = xP_{XY} + bP_{BY} - y(P_{YX} + P_{YB}) \\
+\db = xP_{XB} + yP_{YB} - b(P_{BX} + P_{BY}) \\
+\end{cases}
+\end{equation}
+with the following transition functions :
+
+\[
+\begin{cases}
+P_{XB} = c \cdot k (1-s) (1-x)^a \\
+P_{YB} = c \cdot k s (1-y)^a \\
+P_{BX} = P_{YX} = c \cdot (1-k) s (1-y)^a \\
+P_{BY} = P_{XY} = c \cdot (1-k) (1-s) (1-x)^a \\
+\end{cases}
+\]
+
+This model was validated by the authors who found that it fits correctly the historical data of the evolution of speakers in the case of Galician and Spanish for a value of $k = 0.8$. \\
+In \cite{BAGGS19939}, some theoretical results are given about the possibility of coexistence. It is shown that coexistence is indeed possible. In \cite{bilingual}, they are interested in the range of values of $s(k)$ that leads to coexistence. This is done using bifurcation theory. In particular, it is first shown that the system expereinces a subcritical Pitchfork bfurcation when $s = \frac{1}{2}$. For the general case $s \ne \frac{1}{2}$, there is also a bifurcation but this time, it is a saddle-node bifurcation. Before a critical value of $k$, the system has one fixed point whereas after, it has three fixed point, one of them being stable. This proves that coexistance is possible.
+
+\section{One dimensional temporal extension}
+\label{sec:1d}
+In this section, we wish to present an extension of
+
+\section{Temporal extension for model with bilinguism}
+\label{sec:2d}
+
+\section{Spatial analysis}
+\label{sec:spatial}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+
 
 \bibliographystyle{plain}
 \bibliography{references}
