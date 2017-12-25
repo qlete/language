@@ -39,7 +39,10 @@ Abrams and Strogatz made the assumption that the attractiveness of a language de
 The perceived relative status, denoted by $s \in [0;1]$ is the perceived social or economical advantage that one has when one speaks this language.
 We denote by $x$ and $y$ the normailized population of speakers of language X and Y, i.e. $x+y=1$. $P_{YX}(x, s)$ is the probability per unit of time that a Y speaker becomes an X speaker. As stated above, it is a function of both $x$ and $s$.
 A simple model for the evolution of this system is
-$$\dx = yP_{YX}(x, s) - xP_{XY}(x, s)$$
+\begin{equation}
+\label{eq:1dsimple}
+\dx = yP_{YX}(x, s) - xP_{XY}(x, s)
+\end{equation}
 which, as $y = 1-x$, is a 1D system. \\
 By interchangability of the two languages, one should have that $P_{XY}(x, s) = P_{YX}(1-x, 1-s)$. Abrams and Strogatz proposed the following function for the probability of switching of language :
 \[ P_{YX}(x,s) = cx^as \hspace{1cm} P_{XY}(x,s) = c(1-x)^a(1-s) \]
@@ -78,7 +81,104 @@ In \cite{BAGGS19939}, some theoretical results are given about the possibility o
 
 \section{One dimensional temporal extension}
 \label{sec:1d}
-In this section, we wish to present an extension of
+In this section, we wish to present an extension of the system (\ref{eq:1dsimple}) to take into account the evolution of the perveiced status $s$.
+We extend slightly this notion of status to other factors that can make a person want to learn the language, like the cultural factor.
+Indeed, in many cases, the very fact that a regional language is endangered increase its status among the population.
+The Irish language is a good example.
+When Irish people realised that the possibility of extinction of their language existed, people startded to consider it differently.
+Policies were established to make the language mandatory at school and it gained a lot of influence so that it became primary to know Irish to be able to be accepted in high ranked colleges or apply to some jobs.
+Even closer to us, in Wallonia, one can argue that its decrease in popularity was followed by a small but real increase in its status thanks among other to cultural policies or independent actions.
+Moreover, the models described in \cite{death} or \cite{bilingual} aim to help to develop policies.
+These policies will often lead to an increase in the status $s$ and it would thus be intereting to have a model where $s$ eveloves dynamically. \\
+Modelling this phenomenon can be done by considering a non-stationary $s$. The system (\ref{eq:1dsimple}) would become
+
+\begin{equation}
+\label{eq:1dtemp}
+\begin{cases}
+\dx = c\big( (1-x)sx^a - x(1-s)(1-x)^a \big) \\
+\ds = S(x, s) \\
+\end{cases}
+\end{equation}
+
+where the function $S(x,s)$ will model the dynamics of $s$ and need to be defined.
+The requirements for this function are that $S(x,s)$ should be positive when $x$ is small, negative when $x$ is large and $0$ when $s = \frac{1}{2}$.
+Moreover, it should be such that $s(t) \in [0;1] \hspace{0.5cm} \forall{t}$.
+One function the I propose to model the dynamic of $s$ that fulfill the requirements is the following
+
+\begin{equation}
+\label{eq:sdyn}
+S(x,s) = (\frac{1}{x}-\frac{1}{y})s(1-s) = (\frac{1}{x}+\frac{1}{x-1})s(1-s)
+\end{equation}
+
+The first part of the function, $\frac{1}{x}+\frac{1}{x-1}$, is there to ensure the first requirement and has the folllowing shape
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{functionofs.png}
+\caption{Function $\frac{1}{x}+\frac{1}{x-1}$ on $[0;1]$}
+\label{fig:functionofs}
+\end{figure}
+
+This function tends respectively to $-\infty$ and $\infty$ in $0$ and $1$ and is $0$ in $\frac{1}{2}$.
+The second part of the function, $s(1-s)$, is added to ensure that $s$ stay in $[0;1]$.
+This is proved by the following theorem. \\
+
+\begin{theorem}{}
+\label{posinv}
+If $S$ is given by equation (\ref{eq:sdyn}) and if $a>0$, then the set $A = (0;1) \times [0;1]$ is positive invariant for system (\ref{eq:bil}).
+\end{theorem}
+
+\begin{proof}
+We will first show that there exists four particular trajectories that correspond respectively to the four side of the square A, i.e. the side $x=0$, $x=1$, $s=0$ and $s=1$. \\
+For $x=0$, as the interval on $x$ is open, we will show that we have a trajectory as close as we want to the side of the square.
+Let $\epsilon_1>0$ and $\epsilon_2 >0$, there exists $\delta > 0$ and $T > 0$ such that if $x < \delta$ and  if $\epsilon_1>s_0>0$, $s(t) > 1- \epsilon_2 \, \, \forall t > T$.
+Indeed, if $x = \delta$ and  if $s=1-\epsilon_1$, the system becomes
+\[
+\begin{cases}
+\dx =  (1-\delta)(1-\epsilon_1)\delta^a - \delta\epsilon_1(1-\delta)^a  \\
+\ds = (\frac{1}{\delta}+\frac{1}{\delta-1})(1-\epsilon_1)\epsilon_1 \\
+\end{cases}
+\]
+Therefore, we have that $\underset{\delta \rightarrow 0}{\text{lim}} \dx = 0$, $\underset{\delta \rightarrow 0}{\text{lim}} \ds = \infty$ wich means that $s$ will become enventually as close as we want to $1$. By symmetry, we can use a similar argument for the side $x=1$.
+When $s=0$, $\ds = 0$ and $\dx = -x(1-x)^a < 0 \, \forall{x}$ so that $x$ decreses from $1-\epsilon$ to $\epsilon$ for each $\epsilon$ and similarly for $s=1$.
+This shows that there exists four particular trajectories that correspond respectively to the four sides of the square A.
+Now, as the vector field is Lipshitz continuous on $A$, the existence and unicity of solutions holds.
+This means that trajectories cannot cross.
+Therefore, each trajectory that will start inside $A$, will stay in $A$.
+\end{proof}
+
+The system has only one equilibirum point inside $A$, the point $(\frac{1}{2}, \frac{1}{2})$.
+If both language have the same status and the same number of speakers, then no language will extinct and the system will stay as such forever.
+We suppose that this fixed point is unstable.
+Let us verify this mathematically.
+The Jacobian matrix has the following components
+\[
+\begin{cases}
+a_{11} = sax^{a-1} - s(a+1)x^a - (1-s)(1-s)^a + a(1-s)(1-x)^{a-1} \\
+a_{12} = (1-x)^a + x(1-x)^a \\
+a_{21} = (-\frac{1}{x^2}-\frac{1}{(x-1)^2})s(1-s) \\
+a_{22} = (\frac{1}{x}+\frac{1}{x-1})(1-2s) \\
+\end{cases}
+\]
+
+If we compute the eigenvalues of A at $(\frac{1}{2}, \frac{1}{2})$ for $a=1.31$, we have indeed that
+\[
+\begin{cases}
+\lambda_1 = 0.194602+1.08263i \\
+\lambda_2 = 0.194602-1.08263i \\
+\end{cases}
+\]
+As the real part of both eigenvalues are positive, the equilibrium is unstable. \\
+We will now show that the system evolves towards a limit cycle or a closed orbit by using Poincarré-Bendixson theorem.
+Let us recall this theorem. \\
+
+\begin{theorem}{Poincarré-Bendixson}
+\label{th:pb}
+Let $\dx = f(x)$ be a dynamical system with $x \in \mathbb{R}^2$. Let $R$ be a closed bounded subset of $\mathbb{R}^2$ that contains no equilibrium points. Let $t\rightarrow x(t)$ be a trajectory that stays in $R$ for all $t > 0$ and suppose that $f \in C^1$ in an open subset that contains $R$.\\
+Then, $x(t)$ is a periodic solution or $x(t)$ tends towards a closed orbit ad $t \rightarrow \infty$.
+\end{theorem}
+
+To apply this thoerem to our system, let $\epsilon > 0$ and let $R = A \backslash B(\epsilon;(\frac{1}{2},\frac{1}{2}))$. We have shown that $(\frac{1}{2},\frac{1}{2})$ is unstable and $A$ is positively invariant. Therefore, all trajectories satisfy the assumptions of theorem \ref{th:pb}.
 
 \section{Temporal extension for model with bilinguism}
 \label{sec:2d}
