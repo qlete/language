@@ -1,0 +1,96 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custom}[2014/05/11 Custom Package]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+
+\usepackage{enumerate}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm , right=2cm]{geometry}
+%\usepackage{setspace} %doublespace, onehalfspace
+\usepackage{siunitx}
+\usepackage{here}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{tocloft} %spacing in list of figures
+
+\usepackage{listings} %input code
+\lstset{
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  basicstyle=\rm\small\ttfamily,
+  keywordstyle=\bfseries\color{blue},
+  frame=single,
+  commentstyle=\color{gray}=small,
+  stringstyle=\color{green},
+  %backgroundcolor=\color{gray!10},
+  %tabsize=2,
+  rulecolor=\color{black!30},
+  %title=\lstname,
+  breaklines=true,
+  framextopmargin=2pt,
+  framexbottommargin=2pt,
+  extendedchars=true,
+}
+
+%\usepackage{multibbl} %multiplebibliography
+\usepackage{hyperref}
+\usepackage[babel=true]{csquotes}
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{epstopdf}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage{comment}
+
+\usepackage{csquotes}
+
+\usepackage{caption}
+
+\usepackage{ragged2e}
+
+\bibliographystyle{IEEEtran}
+
+\usepackage{parskip} % Ajoute de l’espace entre les paragraphes et mets l’ indentation à 0
+\setlength{\parindent}{15pt} % Remets l’indentation par defaut
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\dif}[1]{\mathrm{d}#1}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\av}[1]{\langle #1 \rangle}
+
+%Define properly the norm for large equations
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\algnewcommand\algorithmicinitialization{\textbf{Initialization:}}
+\algnewcommand\Initialization{\item[\algorithmicinitialization]}
+
+\setcounter{MaxMatrixCols}{20}
+
+
+\endinput
