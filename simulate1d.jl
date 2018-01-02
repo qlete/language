@@ -8,6 +8,12 @@ function f(t, y)
 
     (x, s, alpha) = y
 
+    if x < 0
+        x = 0
+    end
+    if x > 1
+        x = 1
+    end
     x_prime = c*((1-x)*x^a*s-x*(1-x)^a*(1-s))
     # s_prime = (1/x-1/(1-x))*(1-s)*s
     s_prime = alpha*(1/(x+1) + 1/(x-2))*(1-s)*s
@@ -17,41 +23,44 @@ function f(t, y)
 end
 
 function simulate()
-    alpha0 = 1e-3
-    starty = [0.2, 0.66, alpha0]
-    tspan = [0, 200]
+    alpha0 = 1
+    starty = [0.55, 0.45, alpha0]
+    tspan = [0, 1000]
     t, y = ode45(f, starty, tspan)
     x = map(y -> y[1], y)
     s = map(y -> y[2], y)
     # plot(t, sqrt.(x1.^2+x2.^2))
-    plot(x, s)
-    show()
+    plt.plot(x, s)
+    plt.ylabel("s")
+    plt.xlabel("x")
+    plt.savefig("traj1D2.png")
+    plt.show()
 end
 
 function bassin()
-    x = linspace(0,1,10)
-    s = linspace(0,1,10)
+    x = linspace(0,1,100)
+    s = linspace(0,1,100)
     alpha = logspace(-3, 1, 10)
     A = zeros(length(x), length(s))
     tspan = [0,200]
     for (i, alpha0) in enumerate(alpha)
         for (j,s0) in enumerate(s)
-            print((i, j))
-            if ((j==8) && (i<=4))
-                tspan = [0,150]
-            elseif (j==7) && i<=1
-                tspan = [0,200]
-            else
-                tspan = [0,100]
-            end
+            # print((i, j))
+            # if ((j==8) && (i<=4))
+            #     tspan = [0,150]
+            # elseif (j==7) && i<=1
+            #     tspan = [0,200]
+            # else
+            #     tspan = [0,100]
+            # end
             t, y = ode45(f, [0.2, s0, alpha0], tspan)
             xsol = map(y -> y[1], y)
             ssol = map(y -> y[2], y)
-            if (j==7) && (i<=3)
-                @show alpha0
-                @show s0
-                @show xsol
-            end
+            # if (j==7) && (i<=3)
+            #     @show alpha0
+            #     @show s0
+            #     @show xsol
+            # end
 
             if (xsol[end] < 1e-3)
                 A[i,j] = 1
@@ -68,5 +77,5 @@ function bassin()
     plt.show()
 end
 
-# simulate()
-bassin()
+simulate()
+# bassin()

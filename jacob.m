@@ -1,8 +1,10 @@
 a = 1.31;
 c = 1;
 alpha = 1e-3;
+kstar = (2*a-2)/(2*a-1);
 % s = 1/2;
 
+for i = linspace(0,1)
 syms k x y s
 % syms k x y
 % v(1) = c*(1-x)*((1-k)*s*(1-y)^a - (1-s)*x*(1-x)^(a-1));
@@ -12,13 +14,18 @@ syms k x y s
 J = jacobian([c*(1-x)*((1-k)*s*(1-y)^a - (1-s)*x*(1-x)^(a-1)), c*(1-y)*((1-k)*(1-s)*(1-x)^a - s*y*(1-y)^(a-1)), alpha*(1/(x+1)-1/(y+1))*s*(1-s)], [x y s]);
 % J = jacobian([c*(1-x)*((1-k)*s*(1-y)^a - (1-s)*x*(1-x)^(a-1)), c*(1-y)*((1-k)*(1-s)*(1-x)^a - s*y*(1-y)^(a-1))], [x y]);
 
-%     kstar = (2*a-2)/(2*a-1)
-k = 0.4;
+k = i;
 x = (1-k)/(2-k);
 y = (1-k)/(2-k);
 s = 1/2;
 
-simplify(eig(J))
-
 J = eval(J);
-E = eig(J)
+E = eig(J);
+if all(real(E) < 0)
+    plot(i, 0, 'Marker', '.', 'Color',  'blue'); hold on;
+else
+    plot(i, 0, 'Marker', '.', 'Color',  'red'); hold on;
+end
+end
+y = linspace(-0.4, 0.4);
+plot(kstar*ones(length(y)), y); 

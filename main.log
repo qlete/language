@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.10)  25 DEC 2017 17:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.10)  2 JAN 2018 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1835,53 +1835,185 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<functionofs.png, id=67, 462.528pt x 346.896pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<functionofs.png, id=76, 462.528pt x 346.896pt>
 File: functionofs.png Graphic file (type png)
 <use functionofs.png>
-Package pdftex.def Info: functionofs.png  used on input line 117. on input line
- 117.
+Package pdftex.def Info: functionofs.png  used on input line 121. on input line
+ 121.
 Package pdftex.def Info: Requested size: 231.26343pt x 173.44757pt on input lin
-e 117.
+e 121.
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--125
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 170--174
+Underfull \hbox (badness 10000) in paragraph at lines 126--129
 
  []
 
 [3 <./functionofs.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 174--178
 
-LaTeX Warning: Reference `th:pb' on page 4 undefined on input line 181.
+ []
 
-(./main.bbl) [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+<traj1D1_02066.png, id=95, 462.528pt x 346.896pt>
+File: traj1D1_02066.png Graphic file (type png)
+<use traj1D1_02066.png>
+Package pdftex.def Info: traj1D1_02066.png  used on input line 191. on input li
+ne 191.
+Package pdftex.def Info: Requested size: 231.26343pt x 173.44757pt on input lin
+e 191.
+<traj1D1_04055.png, id=96, 462.528pt x 346.896pt>
+File: traj1D1_04055.png Graphic file (type png)
+<use traj1D1_04055.png>
+Package pdftex.def Info: traj1D1_04055.png  used on input line 192. on input li
+ne 192.
+Package pdftex.def Info: Requested size: 231.26343pt x 173.44757pt on input lin
+e 192.
+[4 <./traj1D1_02066.png> <./traj1D1_04055.png>]
+<functionofs2.png, id=113, 462.528pt x 346.896pt>
+File: functionofs2.png Graphic file (type png)
+<use functionofs2.png>
+Package pdftex.def Info: functionofs2.png  used on input line 216. on input lin
+e 216.
+Package pdftex.def Info: Requested size: 231.26343pt x 173.44757pt on input lin
+e 216.
+<traj1D202081e-3.png, id=115, 462.528pt x 346.896pt>
+File: traj1D202081e-3.png Graphic file (type png)
+<use traj1D202081e-3.png>
+Package pdftex.def Info: traj1D202081e-3.png  used on input line 229. on input 
+line 229.
+Package pdftex.def Info: Requested size: 185.0079pt x 138.75594pt on input line
+ 229.
+<traj1D20550451.png, id=116, 462.528pt x 346.896pt>
+File: traj1D20550451.png Graphic file (type png)
+<use traj1D20550451.png>
+Package pdftex.def Info: traj1D20550451.png  used on input line 230. on input l
+ine 230.
+Package pdftex.def Info: Requested size: 185.0079pt x 138.75594pt on input line
+ 230.
+<traj1D208021e-3.png, id=117, 462.528pt x 346.896pt>
+File: traj1D208021e-3.png Graphic file (type png)
+<use traj1D208021e-3.png>
+Package pdftex.def Info: traj1D208021e-3.png  used on input line 231. on input 
+line 231.
+Package pdftex.def Info: Requested size: 185.0079pt x 138.75594pt on input line
+ 231.
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--239
+
+ []
+
+[5 <./functionofs2.png> <./traj1D202081e-3.png> <./traj1D20550451.png> <./traj1
+D208021e-3.png>]
+<convergence_heatmap.png, id=142, 462.528pt x 346.896pt>
+File: convergence_heatmap.png Graphic file (type png)
+<use convergence_heatmap.png>
+Package pdftex.def Info: convergence_heatmap.png  used on input line 299. on in
+put line 299.
+Package pdftex.def Info: Requested size: 231.26343pt x 173.44757pt on input lin
+e 299.
+ [6]
+Package epstopdf Info: Source file: <nullpp.eps>
+(epstopdf)                    date: 2018-01-02 09:20:14
+(epstopdf)                    size: 22073 bytes
+(epstopdf)             Output file: <nullpp-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-01-02 09:24:15
+(epstopdf)                    size: 8816 bytes
+(epstopdf)             Command: <repstopdf --outfile=nullpp-eps-converted-to.pd
+f nullpp.eps>
+(epstopdf)             \includegraphics on input line 337.
+Package epstopdf Info: Output file is already uptodate.
+<nullpp-eps-converted-to.pdf, id=156, pagebox=cropbox, 421.575pt x 316.18124pt>
+
+File: nullpp-eps-converted-to.pdf Graphic file (type pdf)
+<use nullpp-eps-converted-to.pdf>
+Package pdftex.def Info: nullpp-eps-converted-to.pdf  used on input line 337. o
+n input line 337.
+Package pdftex.def Info: Requested size: 210.78697pt x 158.09023pt on input lin
+e 337.
+Package epstopdf Info: Source file: <nulle.eps>
+(epstopdf)                    date: 2018-01-02 09:20:34
+(epstopdf)                    size: 22080 bytes
+(epstopdf)             Output file: <nulle-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-01-02 09:24:15
+(epstopdf)                    size: 8786 bytes
+(epstopdf)             Command: <repstopdf --outfile=nulle-eps-converted-to.pdf
+ nulle.eps>
+(epstopdf)             \includegraphics on input line 338.
+Package epstopdf Info: Output file is already uptodate.
+<nulle-eps-converted-to.pdf, id=157, pagebox=cropbox, 421.575pt x 316.18124pt>
+File: nulle-eps-converted-to.pdf Graphic file (type pdf)
+<use nulle-eps-converted-to.pdf>
+Package pdftex.def Info: nulle-eps-converted-to.pdf  used on input line 338. on
+ input line 338.
+Package pdftex.def Info: Requested size: 210.78697pt x 158.09023pt on input lin
+e 338.
+Package epstopdf Info: Source file: <nullpg.eps>
+(epstopdf)                    date: 2018-01-02 09:19:46
+(epstopdf)                    size: 22053 bytes
+(epstopdf)             Output file: <nullpg-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-01-02 09:24:16
+(epstopdf)                    size: 8828 bytes
+(epstopdf)             Command: <repstopdf --outfile=nullpg-eps-converted-to.pd
+f nullpg.eps>
+(epstopdf)             \includegraphics on input line 339.
+Package epstopdf Info: Output file is already uptodate.
+<nullpg-eps-converted-to.pdf, id=158, pagebox=cropbox, 421.575pt x 316.18124pt>
+
+File: nullpg-eps-converted-to.pdf Graphic file (type pdf)
+<use nullpg-eps-converted-to.pdf>
+Package pdftex.def Info: nullpg-eps-converted-to.pdf  used on input line 339. o
+n input line 339.
+Package pdftex.def Info: Requested size: 210.78697pt x 158.09023pt on input lin
+e 339.
+ [7 <./convergence_heatmap.png>]
+<coexistence.png, id=170, 392.21532pt x 394.47375pt>
+File: coexistence.png Graphic file (type png)
+<use coexistence.png>
+Package pdftex.def Info: coexistence.png  used on input line 355. on input line
+ 355.
+Package pdftex.def Info: Requested size: 196.10718pt x 197.23639pt on input lin
+e 355.
+ [8 <./nullpp-eps-converted-to.pdf> <./nulle-eps-converted-to.pdf> <./nullpg-ep
+s-converted-to.pdf> <./coexistence.png>]
+Package epstopdf Info: Source file: <bifur.eps>
+(epstopdf)                    date: 2018-01-02 11:05:11
+(epstopdf)                    size: 235398 bytes
+(epstopdf)             Output file: <bifur-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-01-02 11:07:24
+(epstopdf)                    size: 10721 bytes
+(epstopdf)             Command: <repstopdf --outfile=bifur-eps-converted-to.pdf
+ bifur.eps>
+(epstopdf)             \includegraphics on input line 371.
+Package epstopdf Info: Output file is already uptodate.
+<bifur-eps-converted-to.pdf, id=207, pagebox=cropbox, 578.16pt x 445.665pt>
+File: bifur-eps-converted-to.pdf Graphic file (type pdf)
+<use bifur-eps-converted-to.pdf>
+Package pdftex.def Info: bifur-eps-converted-to.pdf  used on input line 371. on
+ input line 371.
+Package pdftex.def Info: Requested size: 289.07928pt x 222.83195pt on input lin
+e 371.
+ [9 <./bifur-eps-converted-to.pdf>] (./main.bbl) [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 197.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 412.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 412.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4F0E5ECF1663B63F3E37A3A764B6A958;351.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 197.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 412.
  ) 
 Here is how much of TeX's memory you used:
- 35688 strings out of 492990
- 714955 string characters out of 6135004
- 828942 words of memory out of 5000000
- 38711 multiletter control sequences out of 15000+600000
- 546271 words of font info for 69 fonts, out of 8000000 for 9000
+ 35784 strings out of 492990
+ 716883 string characters out of 6135004
+ 829414 words of memory out of 5000000
+ 38773 multiletter control sequences out of 15000+600000
+ 547047 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,69p,10367b,779s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,11n,69p,10367b,785s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -1892,14 +2024,15 @@ sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (4 pages, 210513 bytes).
+mf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfti1000.pfb>
+Output written on main.pdf (10 pages, 438552 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

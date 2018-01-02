@@ -47,7 +47,7 @@ which, as $y = 1-x$, is a 1D system. \\
 By interchangability of the two languages, one should have that $P_{XY}(x, s) = P_{YX}(1-x, 1-s)$. Abrams and Strogatz proposed the following function for the probability of switching of language :
 \[ P_{YX}(x,s) = cx^as \hspace{1cm} P_{XY}(x,s) = c(1-x)^a(1-s) \]
 
-Abrams and Strogatz empirically determined that the parameter $a$ is quite constant trough many populations, with a mean of $1.31$ on a standard deviation of $0.25$. The parameter $s$ has to be estimated for each separate case. \\
+Abrams and Strogatz empirically determined that the parameter $a$ is quite constant trough many populations, with a mean of $1.31$ on a standard deviation of $0.25$. The parameter $s$ has to be estimated for each separate case. When not explicitly stated, all the simulations of this work will thus be made with $a=1.31$.\\
 
 This model doesn't account for the possibility of existence of a bilingual population.
 In some cases, this population plays an important role for the persistence of a language.
@@ -77,7 +77,7 @@ P_{BY} = P_{XY} = c \cdot (1-k) (1-s) (1-x)^a \\
 \]
 
 This model was validated by the authors who found that it fits correctly the historical data of the evolution of speakers in the case of Galician and Spanish for a value of $k = 0.8$. \\
-In \cite{BAGGS19939}, some theoretical results are given about the possibility of coexistence. It is shown that coexistence is indeed possible. In \cite{bilingual}, they are interested in the range of values of $s(k)$ that leads to coexistence. This is done using bifurcation theory. In particular, it is first shown that the system expereinces a subcritical Pitchfork bfurcation when $s = \frac{1}{2}$. For the general case $s \ne \frac{1}{2}$, there is also a bifurcation but this time, it is a saddle-node bifurcation. Before a critical value of $k$, the system has one fixed point whereas after, it has three fixed point, one of them being stable. This proves that coexistance is possible.
+In \cite{BAGGS19939}, some theoretical results are given about the possibility of coexistence. It is shown that coexistence is indeed possible. In \cite{bilingual}, they are interested in the range of values of $s(k)$ that leads to coexistence. This is done using bifurcation theory. In particular, it is first shown that the system experiences a subcritical Pitchfork bfurcation when $s = \frac{1}{2}$. For the general case $s \ne \frac{1}{2}$, there is also a bifurcation but this time, it is a saddle-node bifurcation. Before a critical value of $k$, the system has one fixed point whereas after, it has three fixed point, one of them being stable. This proves that coexistance is possible.
 
 \section{One dimensional temporal extension}
 \label{sec:1d}
@@ -103,29 +103,33 @@ Modelling this phenomenon can be done by considering a non-stationary $s$. The s
 where the function $S(x,s)$ will model the dynamics of $s$ and need to be defined.
 The requirements for this function are that $S(x,s)$ should be positive when $x$ is small, negative when $x$ is large and $0$ when $s = \frac{1}{2}$.
 Moreover, it should be such that $s(t) \in [0;1] \hspace{0.5cm} \forall{t}$.
-One function the I propose to model the dynamic of $s$ that fulfill the requirements is the following
+Finally, it should be anti-symmetric w.r.t. the two languages, i.e. $S(x,s) = - S(1-x, 1-s)$.
+
+\subsection*{First status du-ynamic}
+
+I propose the folllwing function that fulfills the requirements :
 
 \begin{equation}
-\label{eq:sdyn}
+\label{eq:sdyn1}
 S(x,s) = (\frac{1}{x}-\frac{1}{y})s(1-s) = (\frac{1}{x}+\frac{1}{x-1})s(1-s)
 \end{equation}
 
 The first part of the function, $\frac{1}{x}+\frac{1}{x-1}$, is there to ensure the first requirement and has the folllowing shape
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{functionofs.png}
 \caption{Function $\frac{1}{x}+\frac{1}{x-1}$ on $[0;1]$}
 \label{fig:functionofs}
 \end{figure}
 
-This function tends respectively to $-\infty$ and $\infty$ in $0$ and $1$ and is $0$ in $\frac{1}{2}$.
+This function tends respectively to $\infty$ and $-\infty$ in $0$ and $1$ and is $0$ in $\frac{1}{2}$.
 The second part of the function, $s(1-s)$, is added to ensure that $s$ stay in $[0;1]$.
 This is proved by the following theorem. \\
 
 \begin{theorem}{}
 \label{posinv}
-If $S$ is given by equation (\ref{eq:sdyn}) and if $a>0$, then the set $A = (0;1) \times [0;1]$ is positive invariant for system (\ref{eq:bil}).
+If $S$ is given by equation (\ref{eq:sdyn1}) and if $a>0$, then the set $A = (0;1) \times [0;1]$ is positive invariant for system (\ref{eq:bil}).
 \end{theorem}
 
 \begin{proof}
@@ -178,13 +182,224 @@ Let $\dx = f(x)$ be a dynamical system with $x \in \mathbb{R}^2$. Let $R$ be a c
 Then, $x(t)$ is a periodic solution or $x(t)$ tends towards a closed orbit ad $t \rightarrow \infty$.
 \end{theorem}
 
-To apply this thoerem to our system, let $\epsilon > 0$ and let $R = A \backslash B(\epsilon;(\frac{1}{2},\frac{1}{2}))$. We have shown that $(\frac{1}{2},\frac{1}{2})$ is unstable and $A$ is positively invariant. Therefore, all trajectories satisfy the assumptions of theorem \ref{th:pb}.
+To apply this thoerem to our system, let $\epsilon > 0$ and let $R = A \backslash B(\epsilon;(\frac{1}{2},\frac{1}{2}))$. We have shown that $(\frac{1}{2},\frac{1}{2})$ is unstable and $A$ is positively invariant. Therefore, all trajectories satisfy the assumptions of theorem \ref{th:pb}. \\
+
+To end this part, here are some simulations of trajectories that can be observed for this system (Figure \ref{fig:traj1D1}) :
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{traj1D1_02066.png}
+\includegraphics[scale=0.5]{traj1D1_04055.png}
+\caption{Trajectories for the system \ref{eq:1dtemp} with status dynamic \ref{eq:sdyn1}. Starting points are respectively $[x_0, s_0] = [0.2, 0.66] \text{   and   } [0.4, 0.55]$.}
+\label{fig:traj1D1}
+\end{figure}
+
+We can see that indeed the trajectories seem to converge to a periodic trajectory.
+
+\subsection*{Alternative status dynamic}
+The addition of a dynamical model for the status makes it possible to explain why some languages, although previously endangered and close to extinction, experience a renewed status and a change in dynamics.
+This is for instance the example of the Irish languange and the Walloon language.
+However, this system doesn't explain extinction as it is impossible with that dynamic.
+It is possible to slightly modify the dynamic and come up with a system that will have both possibilities of extinction and of renewed popularity, closer to what seems to happen in the real world.
+This is done by modifying the $S(x,s)$ function to remove the asymptotic behavior in $0$ and $1$.
+I propose the following dynamic for $s$ :
+
+\begin{equation}
+\label{eq:sdyn2}
+S(x,s) =  \alpha (\frac{1}{x+1} + \frac{1}{x-2}) (1-s) s
+\end{equation}
+
+where $\alpha \in \mathbb{R}_{+}$ is a nonnegative parameter. If, similarly to Figure \ref{fig:functionofs}, we plot the first factor of $S(x,s)$ as a funciton of $s$, we have
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{functionofs2.png}
+\caption{Function $\frac{1}{x+1}+\frac{1}{x-2}$ on $[0;1]$}
+\label{fig:functionofs2}
+\end{figure}
+
+This function ensures that the language close to extinction will indeed benefit from a renewed popularity, but the popularity will be limited.
+The strength of this renewal is controlled by parameter $\alpha$. \\
+Intuitively, we would think that this new dynamic doesn't prevent a language to extinct like the previous one.
+Indeed, this is what we observe.
+For example, Figure \ref{fig:traj1D2} shows some of the possible trajectories for this system :
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{traj1D202081e-3.png}
+\includegraphics[scale=0.4]{traj1D20550451.png}
+\includegraphics[scale=0.4]{traj1D208021e-3.png}
+\caption{Trajectories for the system \ref{eq:1dtemp} with status dynamic \ref{eq:sdyn2}. Starting points are respectively $[x_0, s_0] = [0.2, 0.8], [0.55,0.55] \text{   and   } [0.4, 0.55]$. The value of $\alpha$ is respectively $10^{-3}$, $1$ and $10^{-3}$.}
+\label{fig:traj1D2}
+\end{figure}
+
+This shows that indeed, if $\alpha$ remains small, it is possible for a language to extinct.
+If $\alpha$ is somehow large like for the central plot, what seems to be a periodic solution is observed, similarly than for the previous $S$.\\
+Simlarly to theorem \ref{posinv}, we can show that the dynamic is well defined. \\
+\begin{theorem}{}
+\label{posinv2}
+If $S$ is given by equation (\ref{eq:sdyn2}) and if $a>0$, then the set $B = [0;1] \times [0;1]$ is positive invariant for system (\ref{eq:bil}).
+\end{theorem}
+
+\begin{proof}
+Similarly than for theorem \ref{posinv}, we will show that the four sides of B are trajectories. \\
+If $s = 0$ and $x_0 = 1-\epsilon$, then $\ds = 0$ and $\dx < 0$. Therefore $x$ will decrese until $0$.
+We thus have that the side $s=0$ is a trajectory.
+By symmetry, $s=1$ is a trajectory.
+If $x=0$ then $\dx = 0$. If in addition, $s_0 = 1-\epsilon$, $\ds < 0$ for all $s < 1$ and it will decrease until $0$.
+By symmetry, the sides $x=0$ and $x=1$ are trajectories.
+This shows by a similar argument than the one used in theorem \ref{posinv} that  B is positively invariant.
+\end{proof}
+
+Let us now analyse more formally the fixed points of this systems.
+The nullclines are
+$$n_x = \{(x,s) | x=0 \} \cup \{ (x,s)| x = 1 \} \cup \{ (x,s) | sx^{a-1} = (1-s)(1-x)^{a-1} \}$$
+$$n_s = \{(x,s) | s=0 \} \cup \{ (x,s)| s = 1 \} \cup \{ (x,s) | x= \frac{1}{2} \}$$
+
+Taking the intersection of the nullclines, we get that the fixed point of this system are the four vertices of $B$ anf $(\frac{1}{2}, \frac{1}{2})$.
+Now let us look at their stability.
+We consider only the case $a=1.31$ for simplicity.
+Similarly than for the previous system, we get the following components for the jacobian
+
+\[
+\begin{cases}
+a_{11} = sax^{a-1} - s(a+1)x^a - (1-s)(1-s)^a + a(1-s)(1-x)^{a-1} \\
+a_{12} = (1-x)^a + x(1-x)^a \\
+a_{21} = (-\frac{1}{(x+1)^2}-\frac{1}{(x-2)^2})s(1-s) \\
+a_{22} = (\frac{1}{x+1}+\frac{1}{x-2})(1-2s) \\
+\end{cases}
+\]
+
+The eigenvalues can then be conputed for each of the fixed points given below.
+We have
+\begin{table}[h]
+  \centering
+  \begin{tabular}{cccccc}
+    & $(0,0)$ & $(1,0)$ & $(1,0)$ & $(1,1)$ & $(\frac{1}{2}, \frac{1}{2})$ \\
+    \hline
+    $\lambda_1$ & 0.31 & -1 & 0 & -1 & 0.194602+0.310758i \\
+    \hline
+    $\lambda_2$ & 0.5 & -0.5 & -0.5 & 0.5 & 0.194602-0.310758i \\
+    \hline
+  \end{tabular}
+  \caption{Eigenvalues of system \ref{eq:1dtemp} for $a=1.31$.}
+  \label{tab:eig}
+\end{table}
+
+We have that $(0,0), (1,1)$ and $(\frac{1}{2}, \frac{1}{2})$ are unstable. $(1,0)$ is stable and the stability of $(0,1)$ is undetermined with this linear analysis.
+These results are consistent with Figure \ref{fig:traj1D2} which shows two trajectories converging respectively to $(0,1)$ and $(1,0)$.
+This figure also suggest that the basin of attraction of these stable fixed point depend on $\alpha$ and on the intial $s$.
+Intuitively, the smaller the value of $\alpha$ and the larger the intial status, the more chances we have to see the extinction of language $Y$.
+Conversely, the smaller the value of $\alpha$ and the smaller the intial status, the more chances we have to see the extinction of laguage $X$.
+To confirm this, I simulated the long term behavior of the system with respect to $\alpha$ and $s_0$.
+The following heat map (Figure \ref{fig:heatmap}) shows the results :
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{convergence_heatmap.png}
+\caption{Heat map of the long term behavior of the system with respect to the initial status and the parameter $\alpha$. In yellow, the trajectories that converged to $(0,1)$. In purple, the trajectories that converged to $(1,0)$. In blue, the trajectories that did not converged to any of the fixed point.}
+\label{fig:heatmap}
+\end{figure}
+
+This map confirms our intuition and shows the symmetric pattern around $s=\frac{1}{2}$.
 
 \section{Temporal extension for model with bilinguism}
 \label{sec:2d}
+As discussed in section \ref{sec:basic}, people came up with extensions to the system \ref{eq:1dsimple} to take into account the important notion of bilinguism.
+In \cite{bilingual}, system \ref{eq:bil} is presented.
+Using notations described previously this system follows the evolution of the proportion of $X$ speakers, $Y$ speakers and bilinguals, respectively $x$, $y$ and $b$.
+These proportions, by definition, are linked by the equation $x+y+b = 1$.
+System \ref{eq:bil} is thus actually a 2D system.
+We can extend our language status dyamic in a straightforward way and write the following 3D system :
+
+\begin{equation}
+\label{eq:2d}
+\begin{cases}
+\dx = c(1-x) \Big( (1-k)s(1-y)^a - (1-s)x(1-x)^{a-1} \Big) \\
+\dy = c(1-y) \Big( (1-k)(1-s)(1-x)^a - sy(1-y)^{a-1} \Big) \\
+\ds = \alpha \Big( \frac{1}{x+1} - \frac{1}{y+1}\Big) s (1-s) \\
+\end{cases}
+\end{equation}
+
+We restrict here without loss of generality to the case $c=1$.
+Let us see if coexistence is still possible with this dynamics in $s$.
+The nullcline of $s$ can be written as
+
+$$n_s = \{(x,y,s) | x = y \} \cup \{(x,y,s)| s = 0\} \cup \{(x,y,s) | s = 1\}$$
+
+The point $s=0$ and $s=1$ will correspond to the fixed points located at the border of the domain.
+The interesting case happens when $x=y$.
+In this case, the nullclines are symmetrical w.r.t. the line $x=y$.
+Adding the nullcline corresponding to $s$, Figure 2 of \cite{bilingual} becomes
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{nullpp.eps}
+\includegraphics[scale=0.5]{nulle.eps}
+\includegraphics[scale=0.5]{nullpg.eps}
+\caption{Nullclines of the system in the plane $s=\frac{1}{2}$}
+\label{fig:nullclines}
+\end{figure}
+
+The equilibria correponds to the intersection of the nullclines.
+Therefore, we have one equilibrium located in $(\frac{1-k}{2-k}, \frac{1-k}{2-k}, \frac{1}{2})$.
+This equilibrium was thoroughly studied in \cite{bilingual}.
+On Figure \ref{fig:nullclines}, we can see that at $k=k^{\ast}$, two equilibria appears.
+This suggests a Pitchfork bifurcation and it is indeed the case as shown in the paper.
+The result is then extended to the more general case where $s \ne \frac{1}{2}$.
+The bifurcation parameter was obtained as a function of $s$.
+The region where this equilibrium is stable is represented in the following figure (Figure \ref{fig:coexistence})
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{coexistence.png}
+\caption{Coexistence region in function of $s$ and $k$. Source : \cite{bilingual}}
+\label{fig:coexistence}
+\end{figure}
+
+What about the stability of our equilibrium ?
+The bifurcation analysis of \cite{bilingual} suggests also a change of stability at $k=k^{\ast}$.
+Indeed, for $k<k^{\ast}$, the equilibrium was shown to be unstable and the addition of a dynamic in $s$ won't stabilize it.
+For $k>k^{\ast}$ however, the equilibrium was shown to be stable in the 2D system.
+On figure \ref{fig:coexistence}, we see that perturbating slightly $s$ leaves the system in its stability region and we would thus guess that the $s$ doesn't perturb the stability.
+This is of course not a rigorous analysis.
+To be further convinced that there is indeed a change of stability for our system at $k=k^{\ast}$, we can compute numerically the eigenvalues of the Jacobian and check the their sign.
+Figure \ref{fig:bifur} shows what we obtain.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{bifur.eps}
+\caption{Numerical simulation of the stability of the equilibrium for system \ref{eq:2d}. Red corresponds to unstability while red corresponds to stability. The vertical line represent $k=k^{\ast}$.}
+\label{fig:bifur}
+\end{figure}
+
+This simulation confirms the change in stability at $k=k^{\ast}$.
 
 \section{Spatial analysis}
 \label{sec:spatial}
+When Abrams and Strogatz first proposed a model for the language dynamics in \cite{death}, they claimed that the evolution was driven by the number of speakers in both language and the perceived status of the language among the population.
+The status was considered constant throughout the time.
+The analysis provided in the previous sections studied the dynamics of language when we relax this strong constraint.
+Another implicit strong constraint in the model is the spatial uniformity of the dynamics.
+If it is true that the dynamic is driven by the number of speakers, it suggests that we are somehow influenced by the part of the population that speaks the other language.
+In this context, it seems natural that we will be much more influenced by our neighbors than by people living far away.
+To illustrate this, I will agin take the example of the Irish language.
+Although the proportion of Irish speakers is quite low at the scale of the whole country, there are regions where this proportion is much higher than the average (in this case, mainly in county Galway and Mayo in the West part).
+The people living in these region would be influenced by the proportion of speakers in their own region and not by the average over the country.\\
+To study this phenomenon, let's go back to the simplest model from Abrams and Strogatz. Instead of considering one state variable for the whole country, let's divide the country into $K$ regions of similar surface.
+We add one state variable $x_k$ per region, corresponding to the proportion of speakers of language $X$ in region $k \in \{ 1, ..., K\}$.
+We define the neighbors of a region $k$ as the set of regions that have a nonpunctual border with it and we denote by $\mathcal{N}_k(x)$ the mean of the state variables of each neighbor of $k$.
+The spatial evolution of the number of speakers can be modeled as
+
+\begin{equation}
+\dx_k = c\big( (1-x_k)s\mathcal{N}(x)^a - x_k(1-s)(1-\mathcal{N}(x))^a \big) \hspace{1cm} \forall k \in \{1,...,K\}
+\end{equation}
+
+This model was tested on a real Irish dataset.
+In this dataset, each region correspond to one electoral district.
+We considered a rectangular grid, changing a bit the shape of the country but trying as much as possible to keep the neighbor relationship as such.
+
+
 
 \section{Conclusion}
 \label{sec:conclusion}
