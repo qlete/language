@@ -25,7 +25,7 @@ In this work, I propose to extend the two previous models to model the temporal 
 I will also analyse numerically some spatial properties of the dynamics and test on a real dataset for the Irish case.
 As the model developed here is a direct extension of \cite{bilingual} and as a comprehensive state space analysis was made in that paper,
 I will in each section recall and explain the important results found in \cite{bilingual} before extending to the new temporal and spatial considerations. \\
-This project will be a mix between theoretical results and numerical simulations and is not meant to be comprehensive. Sometimes, intuition will be given using numerical simulation only. \\
+This project will be a mix between theoretical results and numerical simulations and is not meant to be comprehensive. Sometimes, intuition will be given using numerical simulations only. \\
 The report will be organised as follows : in section \ref{sec:basic},
 I will prensent the equations of the models proposed by \cite{death} and \cite{bilingual} and define the notations used.
 Section \ref{sec:1d} will describe the extension of the model proposed for the change in the perceived status of a language and apply it to extend the Abrams-Strogatz model.
@@ -33,7 +33,7 @@ Section \ref{sec:2d} will do the same for \cite{bilingual}.
 Section \ref{sec:spatial} will analyse some spatial properties of the system.
 Section \ref{sec:conclusion} will be the conclusion of this project.
 
-\section{Basic models and notation}
+\section{Basic models and notations}
 \label{sec:basic}
 We consider a system of two competing languages X and Y.
 Abrams and Strogatz made the assumption that the attractiveness of a language depends on two things : its number of speakers and its perceived status.
@@ -48,7 +48,7 @@ which, as $y = 1-x$, is a 1D system. \\
 By interchangability of the two languages, one should have that $P_{XY}(x, s) = P_{YX}(1-x, 1-s)$. Abrams and Strogatz proposed the following function for the probability of switching of language :
 \[ P_{YX}(x,s) = cx^as \hspace{1cm} P_{XY}(x,s) = c(1-x)^a(1-s) \]
 
-Abrams and Strogatz empirically determined that the parameter $a$ is quite constant trough many populations, with a mean of $1.31$ on a standard deviation of $0.25$. The parameter $s$ has to be estimated for each separate case. When not explicitly stated, all the simulations of this work will thus be made with $a=1.31$.\\
+They empirically determined that the parameter $a$ is quite constant trough many populations, with a mean of $1.31$ on a standard deviation of $0.25$. The parameter $s$ has to be estimated for each separate case. When not explicitly stated, all the simulations of this work will thus be made with $a=1.31$.\\
 
 This model doesn't account for the possibility of existence of a bilingual population.
 In some cases, this population plays an important role for the persistence of a language.
@@ -82,11 +82,11 @@ In \cite{BAGGS19939}, some theoretical results are given about the possibility o
 
 \section{One dimensional temporal extension}
 \label{sec:1d}
-In this section, we wish to present an extension of the system (\ref{eq:1dsimple}) to take into account the evolution of the perveiced status $s$.
-We extend slightly this notion of status to other factors that can make a person want to learn the language, like the cultural factor.
+In this section, I wish to present an extension of the system (\ref{eq:1dsimple}) to take into account the evolution of the perveiced status $s$.
+I extend slightly this notion of status to other factors that can make a person want to learn the language, like the cultural factor.
 Indeed, in many cases, the very fact that a regional language is endangered increase its status among the population.
 The Irish language is a good example.
-When Irish people realised that the possibility of extinction of their language existed, people startded to consider it differently.
+When Irish people realised that the possibility of extinction of their language existed, people started to consider it differently.
 Policies were established to make the language mandatory at school and it gained a lot of influence so that it became primary to know Irish to be able to be accepted in high ranked colleges or apply to some jobs.
 Even closer to us, in Wallonia, one can argue that its decrease in popularity was followed by a small but real increase in its status thanks among other to cultural policies or independent actions.
 Moreover, the models described in \cite{death} or \cite{bilingual} aim to help to develop policies.
@@ -106,7 +106,7 @@ The requirements for this function are that $S(x,s)$ should be positive when $x$
 Moreover, it should be such that $s(t) \in [0;1] \hspace{0.5cm} \forall{t}$.
 Finally, it should be anti-symmetric w.r.t. the two languages, i.e. $S(x,s) = - S(1-x, 1-s)$.
 
-\subsection*{First status du-ynamic}
+\subsection*{First status dynamic}
 
 I propose the folllwing function that fulfills the requirements :
 
@@ -115,6 +115,7 @@ I propose the folllwing function that fulfills the requirements :
 S(x,s) = (\frac{1}{x}-\frac{1}{y})s(1-s) = (\frac{1}{x}+\frac{1}{x-1})s(1-s)
 \end{equation}
 
+The implied system is defined on the domain $(x,s) \in [\gamma, 1-\gamma] \times [0,1]$ where $\gamma$ is any positive constant chosen beforehand.
 The first part of the function, $\frac{1}{x}+\frac{1}{x-1}$, is there to ensure the first requirement and has the folllowing shape
 
 \begin{figure}[H]
@@ -126,21 +127,40 @@ The first part of the function, $\frac{1}{x}+\frac{1}{x-1}$, is there to ensure 
 
 This function tends respectively to $\infty$ and $-\infty$ in $0$ and $1$ and is $0$ in $\frac{1}{2}$.
 The second part of the function, $s(1-s)$, is added to ensure that $s$ stay in $[0;1]$.
-This is proved by the following theorem. \\
+This is proved by the two following theorems. \\
 
 \begin{theorem}{}
-\label{posinv}
-If $S$ is given by equation (\ref{eq:sdyn1}) and if $a>0$, then the set $A = (0;1) \times [0;1]$ is positive invariant for system (\ref{eq:bil}).
+The vector field $f$ of system (\ref{eq:1dsimple}) together with (\ref{eq:sdyn1}) is Lipschitz continuous on $A = [\gamma, 1-\gamma] \times [0;1]$
 \end{theorem}
 
 \begin{proof}
-We will first show that there exists four particular trajectories that correspond respectively to the four side of the square A, i.e. the side $x=0$, $x=1$, $s=0$ and $s=1$. \\
+Let's denote by $\{ a_{ii}\}$ the components of the Jacobian of $f$.
+We have
+\begin{equation}
+\label{eq:jacob}
+\begin{cases}
+a_{11} = sax^{a-1} - s(a+1)x^a - (1-s)(1-s)^a + a(1-s)(1-x)^{a-1} \\
+a_{12} = (1-x)^a + x(1-x)^a \\
+a_{21} = (-\frac{1}{x^2}-\frac{1}{(x-1)^2})s(1-s) \\
+a_{22} = (\frac{1}{x}+\frac{1}{x-1})(1-2s) \\
+\end{cases}
+\end{equation}
+As all the components are bounded in $A$, the vector field is Lipshitz continuous.
+\end{proof}
+
+\begin{theorem}{}
+\label{posinv}
+If $S$ is given by equation (\ref{eq:sdyn1}) and if $a>0$, then the set $A = [\gamma, 1-\gamma] \times [0;1]$ for any $\gamma > 0$ is positively invariant for system (\ref{eq:1dsimple}).
+\end{theorem}
+
+\begin{proof}
+We will first show that there exists four particular trajectories that correspond respectively to the four side of the square A, i.e. the side $x=\epsilon$, $x=1-\epsilon$, $s=0$ and $s=1$. \\
 For $x=0$, as the interval on $x$ is open, we will show that we have a trajectory as close as we want to the side of the square.
 Let $\epsilon_1>0$ and $\epsilon_2 >0$, there exists $\delta > 0$ and $T > 0$ such that if $x < \delta$ and  if $\epsilon_1>s_0>0$, $s(t) > 1- \epsilon_2 \, \, \forall t > T$.
-Indeed, if $x = \delta$ and  if $s=1-\epsilon_1$, the system becomes
+Indeed, if $x = \delta$ and  if $s=\epsilon_1$, the system becomes
 \[
 \begin{cases}
-\dx =  (1-\delta)(1-\epsilon_1)\delta^a - \delta\epsilon_1(1-\delta)^a  \\
+\dx =  (1-\delta)\epsilon_1\delta^a - \delta (1-\epsilon_1) (1-\delta)^a  \\
 \ds = (\frac{1}{\delta}+\frac{1}{\delta-1})(1-\epsilon_1)\epsilon_1 \\
 \end{cases}
 \]
@@ -156,17 +176,8 @@ The system has only one equilibirum point inside $A$, the point $(\frac{1}{2}, \
 If both language have the same status and the same number of speakers, then no language will extinct and the system will stay as such forever.
 We suppose that this fixed point is unstable.
 Let us verify this mathematically.
-The Jacobian matrix has the following components
-\[
-\begin{cases}
-a_{11} = sax^{a-1} - s(a+1)x^a - (1-s)(1-s)^a + a(1-s)(1-x)^{a-1} \\
-a_{12} = (1-x)^a + x(1-x)^a \\
-a_{21} = (-\frac{1}{x^2}-\frac{1}{(x-1)^2})s(1-s) \\
-a_{22} = (\frac{1}{x}+\frac{1}{x-1})(1-2s) \\
-\end{cases}
-\]
-
-If we compute the eigenvalues of A at $(\frac{1}{2}, \frac{1}{2})$ for $a=1.31$, we have indeed that
+The Jacobian matrix $\mathcal{A}$ was given by equation (\ref{eq:jacob}).
+If we compute the eigenvalues of $\mathcal{A}$ at $(\frac{1}{2}, \frac{1}{2})$ for $a=1.31$, we have indeed that
 \[
 \begin{cases}
 \lambda_1 = 0.194602+1.08263i \\
@@ -223,9 +234,9 @@ This function ensures that the language close to extinction will indeed benefit 
 The strength of this renewal is controlled by parameter $\alpha$. \\
 Intuitively, we would think that this new dynamic doesn't prevent a language to extinct like the previous one.
 Indeed, this is what we observe.
-For example, Figure \ref{fig:traj1D2} shows some of the possible trajectories for this system :
+For example, Figure \ref{fig:traj1D2} shows some of the possible trajectories for this system.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[scale=0.4]{traj1D202081e-3.png}
 \includegraphics[scale=0.4]{traj1D20550451.png}
@@ -271,16 +282,16 @@ a_{22} = (\frac{1}{x+1}+\frac{1}{x-2})(1-2s) \\
 \end{cases}
 \]
 
-The eigenvalues can then be conputed for each of the fixed points given below.
+The eigenvalues can then be conputed for each of the fixed points given above.
 We have
 \begin{table}[h]
   \centering
   \begin{tabular}{cccccc}
     & $(0,0)$ & $(1,0)$ & $(1,0)$ & $(1,1)$ & $(\frac{1}{2}, \frac{1}{2})$ \\
     \hline
-    $\lambda_1$ & 0.31 & -1 & 0 & -1 & 0.194602+0.310758i \\
+    $\lambda_1$ & 0.31 & -1 & 0 & -1 & $0.194602+0.310758i$ \\
     \hline
-    $\lambda_2$ & 0.5 & -0.5 & -0.5 & 0.5 & 0.194602-0.310758i \\
+    $\lambda_2$ & 0.5 & -0.5 & -0.5 & 0.5 & $0.194602-0.310758i$ \\
     \hline
   \end{tabular}
   \caption{Eigenvalues of system \ref{eq:1dtemp} for $a=1.31$.}
@@ -289,7 +300,7 @@ We have
 
 We have that $(0,0), (1,1)$ and $(\frac{1}{2}, \frac{1}{2})$ are unstable. $(1,0)$ is stable and the stability of $(0,1)$ is undetermined with this linear analysis.
 These results are consistent with Figure \ref{fig:traj1D2} which shows two trajectories converging respectively to $(0,1)$ and $(1,0)$.
-This figure also suggest that the basin of attraction of these stable fixed point depend on $\alpha$ and on the intial $s$.
+This figure also suggest that the basin of attraction of these stable fixed points depend on $\alpha$ and on the intial $s$.
 Intuitively, the smaller the value of $\alpha$ and the larger the intial status, the more chances we have to see the extinction of language $Y$.
 Conversely, the smaller the value of $\alpha$ and the smaller the intial status, the more chances we have to see the extinction of laguage $X$.
 To confirm this, I simulated the long term behavior of the system with respect to $\alpha$ and $s_0$.
@@ -426,6 +437,7 @@ This shows, as we would intuitively expect, that the spatial dynamic is slower t
 Therefore, one should be careful when interpreting the results of the models.
 If the time scale is important in the analysis, adding a spatial dependence, similarly than what was presented here, would probably give more accurate results.
 
+\newpage
 \section{Conclusion}
 \label{sec:conclusion}
 Half of the languages on this planet are directly endangered and the rate at which the extinction occurs is alarming.
