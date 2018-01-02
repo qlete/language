@@ -446,6 +446,12 @@ INPUT ./bifur.eps
 INPUT ./bifur-eps-converted-to.pdf
 INPUT ./bifur-eps-converted-to.pdf
 INPUT ./bifur-eps-converted-to.pdf
+INPUT firstandlast_ir.png
+INPUT ./firstandlast_ir.png
+INPUT ./firstandlast_ir.png
+INPUT overall_dyn_ir.png
+INPUT ./overall_dyn_ir.png
+INPUT ./overall_dyn_ir.png
 INPUT main.bbl
 INPUT main.bbl
 INPUT main.aux

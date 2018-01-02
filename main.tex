@@ -25,6 +25,7 @@ In this work, I propose to extend the two previous models to model the temporal 
 I will also analyse numerically some spatial properties of the dynamics and test on a real dataset for the Irish case.
 As the model developed here is a direct extension of \cite{bilingual} and as a comprehensive state space analysis was made in that paper,
 I will in each section recall and explain the important results found in \cite{bilingual} before extending to the new temporal and spatial considerations. \\
+This project will be a mix between theoretical results and numerical simulations and is not meant to be comprehensive. Sometimes, intuition will be given using numerical simulation only. \\
 The report will be organised as follows : in section \ref{sec:basic},
 I will prensent the equations of the models proposed by \cite{death} and \cite{bilingual} and define the notations used.
 Section \ref{sec:1d} will describe the extension of the model proposed for the change in the perceived status of a language and apply it to extend the Abrams-Strogatz model.
@@ -344,7 +345,7 @@ Adding the nullcline corresponding to $s$, Figure 2 of \cite{bilingual} becomes
 The equilibria correponds to the intersection of the nullclines.
 Therefore, we have one equilibrium located in $(\frac{1-k}{2-k}, \frac{1-k}{2-k}, \frac{1}{2})$.
 This equilibrium was thoroughly studied in \cite{bilingual}.
-On Figure \ref{fig:nullclines}, we can see that at $k=k^{\ast}$, two equilibria appears.
+On Figure \ref{fig:nullclines}, we can see that at $k=k^{\ast}$, two equilibria appears for the system with constant $s$.
 This suggests a Pitchfork bifurcation and it is indeed the case as shown in the paper.
 The result is then extended to the more general case where $s \ne \frac{1}{2}$.
 The bifurcation parameter was obtained as a function of $s$.
@@ -361,15 +362,15 @@ What about the stability of our equilibrium ?
 The bifurcation analysis of \cite{bilingual} suggests also a change of stability at $k=k^{\ast}$.
 Indeed, for $k<k^{\ast}$, the equilibrium was shown to be unstable and the addition of a dynamic in $s$ won't stabilize it.
 For $k>k^{\ast}$ however, the equilibrium was shown to be stable in the 2D system.
-On figure \ref{fig:coexistence}, we see that perturbating slightly $s$ leaves the system in its stability region and we would thus guess that the $s$ doesn't perturb the stability.
+On figure \ref{fig:coexistence}, we see that perturbating slightly $s$ leaves the system in its stability region and we would thus guess that $s$ doesn't perturb the stability.
 This is of course not a rigorous analysis.
-To be further convinced that there is indeed a change of stability for our system at $k=k^{\ast}$, we can compute numerically the eigenvalues of the Jacobian and check the their sign.
+To be further convinced that there is indeed a change of stability for our system at $k=k^{\ast}$, we can compute numerically the eigenvalues of the Jacobian and check their sign.
 Figure \ref{fig:bifur} shows what we obtain.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{bifur.eps}
-\caption{Numerical simulation of the stability of the equilibrium for system \ref{eq:2d}. Red corresponds to unstability while red corresponds to stability. The vertical line represent $k=k^{\ast}$.}
+\caption{Numerical simulation of the stability of the equilibrium for system \ref{eq:2d}. Red corresponds to unstability while blue corresponds to stability. The vertical line represent $k=k^{\ast}$.}
 \label{fig:bifur}
 \end{figure}
 
@@ -379,16 +380,17 @@ This simulation confirms the change in stability at $k=k^{\ast}$.
 \label{sec:spatial}
 When Abrams and Strogatz first proposed a model for the language dynamics in \cite{death}, they claimed that the evolution was driven by the number of speakers in both language and the perceived status of the language among the population.
 The status was considered constant throughout the time.
-The analysis provided in the previous sections studied the dynamics of language when we relax this strong constraint.
+The analysis provided in the previous sections studied the dynamics of language when we relax this strong constraint. \\
 Another implicit strong constraint in the model is the spatial uniformity of the dynamics.
 If it is true that the dynamic is driven by the number of speakers, it suggests that we are somehow influenced by the part of the population that speaks the other language.
-In this context, it seems natural that we will be much more influenced by our neighbors than by people living far away.
+In this context, it seems natural that we will be much more influenced by our neighbors than by people living far away. \\
 To illustrate this, I will agin take the example of the Irish language.
 Although the proportion of Irish speakers is quite low at the scale of the whole country, there are regions where this proportion is much higher than the average (in this case, mainly in county Galway and Mayo in the West part).
-The people living in these region would be influenced by the proportion of speakers in their own region and not by the average over the country.\\
-To study this phenomenon, let's go back to the simplest model from Abrams and Strogatz. Instead of considering one state variable for the whole country, let's divide the country into $K$ regions of similar surface.
+The people living in these regions would be influenced by the proportion of speakers in their own region and not by the average over the country.\\
+To study this phenomenon, let's go back to the simplest model from Abrams and Strogatz.
+Instead of considering one state variable for the whole country, let's divide the country into $K$ regions of similar surface.
 We add one state variable $x_k$ per region, corresponding to the proportion of speakers of language $X$ in region $k \in \{ 1, ..., K\}$.
-We define the neighbors of a region $k$ as the set of regions that have a nonpunctual border with it and we denote by $\mathcal{N}_k(x)$ the mean of the state variables of each neighbor of $k$.
+We define the neighbors of a region $k$ as the set of regions that have a nonpunctual border with it and we denote by $\mathcal{N}_k(x)$ the mean of the state variables of the neighbors of $k$.
 The spatial evolution of the number of speakers can be modeled as
 
 \begin{equation}
@@ -397,13 +399,42 @@ The spatial evolution of the number of speakers can be modeled as
 
 This model was tested on a real Irish dataset.
 In this dataset, each region correspond to one electoral district.
-We considered a rectangular grid, changing a bit the shape of the country but trying as much as possible to keep the neighbor relationship as such.
+We considered a square grid, changing slightly the shape of the country but trying as much as possible to keep the neighbor relationship as such.
+The following figure (Figure \ref{fig:firstandlast_ir}) represent the first and last frame of the simulation
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{firstandlast_ir.png}
+\caption{First and last frame of the simulation of the spatial model on the Irish dataset. Yellow corresponds to only Irish speakers while purple represents only English speakers. It was obtained for $s=\frac{1}{2}$}
+\label{fig:firstandlast_ir}
+\end{figure}
 
+The region that were surrounded by a majority of English speakers become quickly English speaking only.
+It is true for Irish, too.
+This is due to how Abrams and Strogatz's model behave, preventing coexistence.
+Let's compare the two overall dynamics.
+The following figure (Figure \ref{fig:overall}) represent the average of Irish speakers in Ireland using both models
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{overall_dyn_ir.png}
+\caption{First and last frame of the simulation of the spatial model on the Irish dataset. Yellow corresponds to only Irish speakers while purple represents only English speakers. It was obtained for $s=\frac{1}{2}$}
+\label{fig:overall}
+\end{figure}
+
+This shows, as we would intuitively expect, that the spatial dynamic is slower than the average dynamic over the country.
+Therefore, one should be careful when interpreting the results of the models.
+If the time scale is important in the analysis, adding a spatial dependence, similarly than what was presented here, would probably give more accurate results.
 
 \section{Conclusion}
 \label{sec:conclusion}
-
+Half of the languages on this planet are directly endangered and the rate at which the extinction occurs is alarming.
+To come up with suitable policies for the preservation of these languages, a theoretical analysis from the point of view of dynamical systems can be very helpful. \\
+In this work, we first described the basic systems that are commonly used to model language dynamics.
+Then, we proposed mainly two extensions to these models to take into account temporal and spatial evolutions of the parameters.
+Some theoretical results were obtined and numerical simulations were conducted. \\
+The analysis performed in this project shows that adding both a dynamic status and spatial considerations modify sometimes significantly the behavior of the systems. \\
+This project aimed to give a first picture of what a temporal and spatial analysis of language dynamics could look like but the goal was not to be comprehensive. In particular, the intuition was often given using numerical simulations. In a further work, it could be interesting to derive more theoretical results to prove rigorously what was obtained. Moreover, testing the models on real datasets and possibly adapting in consequence the models proposed would probably be the next step for this work.
 
 
 \bibliographystyle{plain}

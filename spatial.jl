@@ -55,6 +55,24 @@ function f_spatial(t, y)
     return dy
 end
 
+function f(t, y)
+    c = 1
+    a = 1.35
+    s=1/2
+
+    x = y
+
+    if x < 0
+        x = 0
+    end
+    if x > 1
+        x = 1
+    end
+    x_prime = c*((1-x)*x^a*s-x*(1-x)^a*(1-s))
+
+    return x_prime
+end
+
 function simulate()
     m = 4
     n = 4
@@ -89,9 +107,10 @@ function ireland()
     n = Int(sqrt(keep))
 
     println(typeof(starty))
-    tspan = [0,200]
+    tspan = [0,50]
     t, y = ode45(f_spatial, starty, tspan)
-    return y
+
+    # return y
     # sol = zeros(n,m)
     # init = zeros(n,m)
     # for i = 1:m
@@ -104,29 +123,44 @@ function ireland()
     # imshow(init, vmin=0.0, vmax=1.0)
     # subplot(1, 2, 2)
     # imshow(sol, vmin=0.0, vmax=1.0)
+
+    sol = zeros(size(t))
+    for i = 1:length(t)
+        sol[i] = mean(mean(y[i]))
+    end
+    plot(t, sol)
+    # savefig("spatial_dyn_ir.png")
     # show()
 
+    t, y = ode45(f, mean(starty), tspan)
+    plot(t, y)
+    legend(("spatial", "average"))
+    xlabel("t")
+    ylabel("x")
+    savefig("overall_dyn_ir.png")
+    show()
+
 end
 
-y = ireland()
-
-function make_frame(i)
-    println(i)
-    m = 135
-    n = 135
-    sol = zeros(m,n)
-    for k = 1:m
-        for j = 1:n
-            sol[k,j] = y[i][linear(k,j,m)]
-        end
-    end
-    imshow(sol)
-end
-
-fig = figure()
-
-myanim = anim.FuncAnimation(fig, make_frame, frames=1:size(y)[1], interval=40)
-myanim[:save]("iranim.mp4", bitrate=-1, extra_args=["-vcodec", "libx264", "-pix_fmt", "yuv420p"])
+# y = ireland()
+#
+# function make_frame(i)
+#     println(i)
+#     m = 135
+#     n = 135
+#     sol = zeros(m,n)
+#     for k = 1:m
+#         for j = 1:n
+#             sol[k,j] = y[i][linear(k,j,m)]
+#         end
+#     end
+#     imshow(sol)
+# end
+#
+# fig = figure()
+#
+# myanim = anim.FuncAnimation(fig, make_frame, frames=1:size(y)[1], interval=40)
+# myanim[:save]("iranim.mp4", bitrate=-1, extra_args=["-vcodec", "libx264", "-pix_fmt", "yuv420p"])
 
 # simulate()
-# ireland()
+ireland()
