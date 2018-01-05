@@ -86,7 +86,7 @@ In this section, I wish to present an extension of the system (\ref{eq:1dsimple}
 I extend slightly this notion of status to other factors that can make a person want to learn the language, like the cultural factor.
 Indeed, in many cases, the very fact that a regional language is endangered increase its status among the population.
 The Irish language is a good example.
-When Irish people realised that the possibility of extinction of their language existed, people started to consider it differently.
+When Irish people realized that the possibility of extinction of their language existed, people started to consider it differently.
 Policies were established to make the language mandatory at school and it gained a lot of influence so that it became primary to know Irish to be able to be accepted in high ranked colleges or apply to some jobs.
 Even closer to us, in Wallonia, one can argue that its decrease in popularity was followed by a small but real increase in its status thanks among other to cultural policies or independent actions.
 Moreover, the models described in \cite{death} or \cite{bilingual} aim to help to develop policies.
@@ -115,7 +115,7 @@ I propose the folllwing function that fulfills the requirements :
 S(x,s) = (\frac{1}{x}-\frac{1}{y})s(1-s) = (\frac{1}{x}+\frac{1}{x-1})s(1-s)
 \end{equation}
 
-The implied system is defined on the domain $(x,s) \in [\gamma, 1-\gamma] \times [0,1]$ where $\gamma$ is any positive constant chosen beforehand.
+With this function, no language will ever extinct as we will show later. Therefore, to ensure the well-posedness of the system, we restrict $x$'s domain to $[\gamma, 1-\gamma]$  where $\gamma$ is a small positive constant chosen beforehand. The implied system is thus defined on the domain $(x,s) \in [\gamma, 1-\gamma] \times [0,1]$.
 The first part of the function, $\frac{1}{x}+\frac{1}{x-1}$, is there to ensure the first requirement and has the folllowing shape
 
 \begin{figure}[H]
@@ -150,11 +150,11 @@ As all the components are bounded in $A$, the vector field is Lipshitz continuou
 
 \begin{theorem}{}
 \label{posinv}
-If $S$ is given by equation (\ref{eq:sdyn1}) and if $a>0$, then the set $A = [\gamma, 1-\gamma] \times [0;1]$ for any $\gamma > 0$ is positively invariant for system (\ref{eq:1dsimple}).
+If $S$ is given by equation (\ref{eq:sdyn1}) and if $a>0$, then the set $A = [\gamma, 1-\gamma] \times [0;1]$ for $\gamma > 0$ sufficiently small is positively invariant for system (\ref{eq:1dsimple}).
 \end{theorem}
 
 \begin{proof}
-We will first show that there exists four particular trajectories that correspond respectively to the four side of the square A, i.e. the side $x=\epsilon$, $x=1-\epsilon$, $s=0$ and $s=1$. \\
+We will first show that there exists four particular trajectories that correspond respectively to the four side of the square A, i.e. the side $x=\gamma$, $x=1-\gamma$, $s=0$ and $s=1$. \\
 For $x=0$, as the interval on $x$ is open, we will show that we have a trajectory as close as we want to the side of the square.
 Let $\epsilon_1>0$ and $\epsilon_2 >0$, there exists $\delta > 0$ and $T > 0$ such that if $x < \delta$ and  if $\epsilon_1>s_0>0$, $s(t) > 1- \epsilon_2 \, \, \forall t > T$.
 Indeed, if $x = \delta$ and  if $s=\epsilon_1$, the system becomes
@@ -164,7 +164,7 @@ Indeed, if $x = \delta$ and  if $s=\epsilon_1$, the system becomes
 \ds = (\frac{1}{\delta}+\frac{1}{\delta-1})(1-\epsilon_1)\epsilon_1 \\
 \end{cases}
 \]
-Therefore, we have that $\underset{\delta \rightarrow 0}{\text{lim}} \dx = 0$, $\underset{\delta \rightarrow 0}{\text{lim}} \ds = \infty$ wich means that $s$ will become enventually as close as we want to $1$. By symmetry, we can use a similar argument for the side $x=1$.
+Therefore, we have that $\underset{\delta \rightarrow 0}{\text{lim}} \dx = 0$, $\underset{\delta \rightarrow 0}{\text{lim}} \ds = \infty$ wich means that even whith a strictly positive $\gamma$ and a $\delta > \gamma$, $\ds$ will be positive and $s$ will become enventually as close as we want to $1$. By symmetry, we can use a similar argument for the side $x=1$.
 When $s=0$, $\ds = 0$ and $\dx = -x(1-x)^a < 0 \, \forall{x}$ so that $x$ decreses from $1-\epsilon$ to $\epsilon$ for each $\epsilon$ and similarly for $s=1$.
 This shows that there exists four particular trajectories that correspond respectively to the four sides of the square A.
 Now, as the vector field is Lipshitz continuous on $A$, the existence and unicity of solutions holds.
@@ -185,7 +185,7 @@ If we compute the eigenvalues of $\mathcal{A}$ at $(\frac{1}{2}, \frac{1}{2})$ f
 \end{cases}
 \]
 As the real part of both eigenvalues are positive, the equilibrium is unstable. \\
-We will now show that the system evolves towards a limit cycle or a closed orbit by using Poincarré-Bendixson theorem.
+We will now show that the system evolves towards a periodic solution or a closed orbit by using Poincarré-Bendixson theorem.
 Let us recall this theorem. \\
 
 \begin{theorem}{Poincarré-Bendixson}
@@ -221,7 +221,7 @@ I propose the following dynamic for $s$ :
 S(x,s) =  \alpha (\frac{1}{x+1} + \frac{1}{x-2}) (1-s) s
 \end{equation}
 
-where $\alpha \in \mathbb{R}_{+}$ is a nonnegative parameter. If, similarly to Figure \ref{fig:functionofs}, we plot the first factor of $S(x,s)$ as a funciton of $s$, we have
+where $\alpha \in \mathbb{R}_{+}$ is a nonnegative parameter. If, similarly to Figure \ref{fig:functionofs}, we plot the first factor of $S(x,s)$ as a funciton of $x$, we have
 
 \begin{figure}[H]
 \centering
@@ -263,12 +263,12 @@ By symmetry, the sides $x=0$ and $x=1$ are trajectories.
 This shows by a similar argument than the one used in theorem \ref{posinv} that  B is positively invariant.
 \end{proof}
 
-Let us now analyse more formally the fixed points of this systems.
+Let us now analyse more formally the fixed points of this system.
 The nullclines are
 $$n_x = \{(x,s) | x=0 \} \cup \{ (x,s)| x = 1 \} \cup \{ (x,s) | sx^{a-1} = (1-s)(1-x)^{a-1} \}$$
 $$n_s = \{(x,s) | s=0 \} \cup \{ (x,s)| s = 1 \} \cup \{ (x,s) | x= \frac{1}{2} \}$$
 
-Taking the intersection of the nullclines, we get that the fixed point of this system are the four vertices of $B$ anf $(\frac{1}{2}, \frac{1}{2})$.
+Taking the intersection of the nullclines, we get that the fixed points of this system are the four vertices of $B$ and $(\frac{1}{2}, \frac{1}{2})$.
 Now let us look at their stability.
 We consider only the case $a=1.31$ for simplicity.
 Similarly than for the previous system, we get the following components for the jacobian
@@ -309,7 +309,7 @@ The following heat map (Figure \ref{fig:heatmap}) shows the results :
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{convergence_heatmap.png}
-\caption{Heat map of the long term behavior of the system with respect to the initial status and the parameter $\alpha$. In yellow, the trajectories that converged to $(0,1)$. In purple, the trajectories that converged to $(1,0)$. In blue, the trajectories that did not converged to any of the fixed point.}
+\caption{Heat map of the long term behavior of the system with respect to the initial status and the parameter $\alpha$. In yellow, the trajectories that converged to $(0,1)$. In purple, the trajectories that converged to $(1,0)$. In blue, the trajectories that did not converged to any of the fixed points.}
 \label{fig:heatmap}
 \end{figure}
 
@@ -356,7 +356,7 @@ Adding the nullcline corresponding to $s$, Figure 2 of \cite{bilingual} becomes
 The equilibria correponds to the intersection of the nullclines.
 Therefore, we have one equilibrium located in $(\frac{1-k}{2-k}, \frac{1-k}{2-k}, \frac{1}{2})$.
 This equilibrium was thoroughly studied in \cite{bilingual}.
-On Figure \ref{fig:nullclines}, we can see that at $k=k^{\ast}$, two equilibria appears for the system with constant $s$.
+On Figure \ref{fig:nullclines}, we can see that at $k=k^{\ast}=\frac{2a-2}{2a-1}$, two equilibria appears for the system with constant $s$.
 This suggests a Pitchfork bifurcation and it is indeed the case as shown in the paper.
 The result is then extended to the more general case where $s \ne \frac{1}{2}$.
 The bifurcation parameter was obtained as a function of $s$.
@@ -429,7 +429,7 @@ The following figure (Figure \ref{fig:overall}) represent the average of Irish s
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{overall_dyn_ir.png}
-\caption{First and last frame of the simulation of the spatial model on the Irish dataset. Yellow corresponds to only Irish speakers while purple represents only English speakers. It was obtained for $s=\frac{1}{2}$}
+\caption{Average proportion of Irish speakers throughout the country using both dynamics.}
 \label{fig:overall}
 \end{figure}
 
