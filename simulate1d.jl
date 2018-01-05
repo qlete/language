@@ -24,16 +24,16 @@ end
 
 function simulate()
     alpha0 = 1
-    starty = [0.55, 0.45, alpha0]
-    tspan = [0, 1000]
+    starty = [0.55, 0.12, alpha0]
+    tspan = [0, 2000]
     t, y = ode45(f, starty, tspan)
     x = map(y -> y[1], y)
     s = map(y -> y[2], y)
     # plot(t, sqrt.(x1.^2+x2.^2))
     plt.plot(x, s)
-    plt.ylabel("s")
-    plt.xlabel("x")
-    plt.savefig("traj1D2.png")
+    # plt.ylabel("s")
+    # plt.xlabel("x")
+    # plt.savefig("traj1D2.png")
     plt.show()
 end
 
